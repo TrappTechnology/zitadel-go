@@ -1,5 +1,7 @@
 # Pinned tool versions – these must match the versions used by the existing
 # generated code so that re-generation produces identical output.
+# NOTE: BUF_VERSION must stay in sync with .github/workflows/update-zitadel.yml
+BUF_VERSION                := 1.45.0
 PROTOC_GEN_GO_VERSION      := 1.31.0
 PROTOC_GEN_GO_GRPC_VERSION := 1.3.0
 
@@ -12,6 +14,12 @@ generate:
 ifeq ($(strip $(TAG)),)
 	$(error TAG is required – usage: make generate TAG=v4.11.0)
 endif
+	@command -v buf >/dev/null 2>&1 || { echo "Error: buf is not installed. Install it from https://buf.build/docs/installation/ (expected v$(BUF_VERSION))"; exit 1; }
+	@INSTALLED_BUF_VERSION=$$(buf --version 2>&1); \
+	if [ "$$INSTALLED_BUF_VERSION" != "$(BUF_VERSION)" ]; then \
+		echo "Error: buf version mismatch: installed $$INSTALLED_BUF_VERSION, expected $(BUF_VERSION)"; \
+		exit 1; \
+	fi
 	@set -e; \
 	_TMPDIR=$$(mktemp -d); \
 	trap 'rm -rf "$$_TMPDIR"' EXIT; \
