@@ -53,10 +53,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-      - name: Install buf
-        uses: bufbuild/buf-setup-action@v1
-        with:
-          version: 1.45.0 # NOTE: must stay in sync with BUF_VERSION in Makefile
       - name: Generate
         run: make generate TAG=${{steps.tag.outputs.tag}}
       - name: Create Pull Request
