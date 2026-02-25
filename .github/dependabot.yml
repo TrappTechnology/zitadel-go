@@ -20,26 +20,6 @@ updates:
                 patterns:
                     - "*"
                 applies-to: "security-updates"
-    -   package-ecosystem: "docker"
-        directory: "/build/zitadel"
-        schedule:
-            interval: "weekly"
-        open-pull-requests-limit: 10
-        rebase-strategy: "auto"
-        labels:
-            - "dependencies"
-        commit-message:
-            prefix: "chore"
-            include: "scope"
-        groups:
-            docker-version-updates:
-                patterns:
-                    - "*"
-                applies-to: "version-updates"
-            docker-security-updates:
-                patterns:
-                    - "*"
-                applies-to: "security-updates"
     -   package-ecosystem: "github-actions"
         directory: "/"
         schedule:
