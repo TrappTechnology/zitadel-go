@@ -58,7 +58,7 @@ jobs:
         with:
           version: 1.45.0
       - name: Generate
-        run: make generate "TAG=${{steps.tag.outputs.tag}}"
+        run: make generate TAG=${{steps.tag.outputs.tag}}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
