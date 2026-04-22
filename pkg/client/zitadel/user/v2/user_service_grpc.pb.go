@@ -368,7 +368,7 @@ type UserServiceClient interface {
 	HumanMFAInitSkipped(ctx context.Context, in *HumanMFAInitSkippedRequest, opts ...grpc.CallOption) (*HumanMFAInitSkippedResponse, error)
 	// Set User Metadata
 	//
-	// Sets a list of key value pairs. Existing metadata entries with matching keys are overwritten. Existing metadata entries without matching keys are untouched. To remove metadata entries, use [DeleteUserMetadata](/docs/reference/api/user/zitadel.user.v2.UserService.DeleteUserMetadata). For HTTP requests, make sure the bytes array value is base64 encoded.
+	// Sets a list of key value pairs. Existing metadata entries with matching keys are overwritten. Existing metadata entries without matching keys are untouched. To remove existing metadata entries, pass an empty metadata value or use [DeleteUserMetadata](/docs/reference/api/user/zitadel.user.v2.UserService.DeleteUserMetadata). If no metadata entry exists for a given key, passing an empty value for that key has no effect (no-op). For HTTP requests, make sure the bytes array value is base64 encoded.
 	//
 	// Required permission:
 	//   - `user.write`
@@ -1224,7 +1224,7 @@ type UserServiceServer interface {
 	HumanMFAInitSkipped(context.Context, *HumanMFAInitSkippedRequest) (*HumanMFAInitSkippedResponse, error)
 	// Set User Metadata
 	//
-	// Sets a list of key value pairs. Existing metadata entries with matching keys are overwritten. Existing metadata entries without matching keys are untouched. To remove metadata entries, use [DeleteUserMetadata](/docs/reference/api/user/zitadel.user.v2.UserService.DeleteUserMetadata). For HTTP requests, make sure the bytes array value is base64 encoded.
+	// Sets a list of key value pairs. Existing metadata entries with matching keys are overwritten. Existing metadata entries without matching keys are untouched. To remove existing metadata entries, pass an empty metadata value or use [DeleteUserMetadata](/docs/reference/api/user/zitadel.user.v2.UserService.DeleteUserMetadata). If no metadata entry exists for a given key, passing an empty value for that key has no effect (no-op). For HTTP requests, make sure the bytes array value is base64 encoded.
 	//
 	// Required permission:
 	//   - `user.write`

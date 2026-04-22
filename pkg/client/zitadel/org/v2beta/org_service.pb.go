@@ -360,7 +360,7 @@ type UpdateOrganizationRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization to be updated
+	// Organization ID for the Organization to be updated
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// New Name for the Organization to be updated
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -589,7 +589,7 @@ type DeleteOrganizationRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization to be deleted
+	// Organization ID for the Organization to be deleted
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
@@ -685,7 +685,7 @@ type DeactivateOrganizationRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization to be deactivated
+	// Organization ID for the Organization to be deactivated
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
@@ -781,7 +781,7 @@ type ActivateOrganizationRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization to be activated
+	// Organization ID for the Organization to be activated
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
@@ -877,7 +877,7 @@ type AddOrganizationDomainRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization for which the domain is to be added to.
+	// Organization ID for the Organization for which the domain is to be added to.
 	OrganizationId string `protobuf:"bytes,1,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
 	// The domain you want to add to the organization.
 	Domain string `protobuf:"bytes,2,opt,name=domain,proto3" json:"domain,omitempty"`
@@ -982,7 +982,7 @@ type ListOrganizationDomainsRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization which domains are to be listed.
+	// Organization ID for the Organization which domains are to be listed.
 	OrganizationId string `protobuf:"bytes,1,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
 	// List limitations and ordering.
 	Pagination *v2beta.PaginationRequest `protobuf:"bytes,2,opt,name=pagination,proto3,oneof" json:"pagination,omitempty"`
@@ -1105,7 +1105,7 @@ type DeleteOrganizationDomainRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization which domain is to be deleted.
+	// Organization ID for the Organization which domain is to be deleted.
 	OrganizationId string `protobuf:"bytes,1,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
 	Domain         string `protobuf:"bytes,2,opt,name=domain,proto3" json:"domain,omitempty"`
 }
@@ -1209,7 +1209,7 @@ type GenerateOrganizationDomainValidationRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization which doman to be validated.
+	// Organization ID for the Organization which domain to be validated.
 	OrganizationId string `protobuf:"bytes,1,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
 	// The domain which to be deleted.
 	Domain string               `protobuf:"bytes,2,opt,name=domain,proto3" json:"domain,omitempty"`
@@ -1331,9 +1331,9 @@ type VerifyOrganizationDomainRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization doman to be verified.
+	// Organization ID for the Organization domain to be verified.
 	OrganizationId string `protobuf:"bytes,1,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
-	// Organization Id for the Organization doman to be verified.
+	// The domain to be verified.
 	Domain string `protobuf:"bytes,2,opt,name=domain,proto3" json:"domain,omitempty"`
 }
 
@@ -1493,7 +1493,6 @@ type SetOrganizationMetadataRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Organization Id for the Organization doman to be verified.
 	OrganizationId string `protobuf:"bytes,1,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
 	// Metadata to set.
 	Metadata []*Metadata `protobuf:"bytes,2,rep,name=metadata,proto3" json:"metadata,omitempty"`

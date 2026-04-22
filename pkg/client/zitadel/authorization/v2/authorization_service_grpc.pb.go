@@ -31,7 +31,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AuthorizationServiceClient interface {
-	// List Authorizations
+	// List Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// ListAuthorizations returns all authorizations matching the request and necessary permissions.
 	//
@@ -41,7 +43,9 @@ type AuthorizationServiceClient interface {
 	//   - "user.grant.read"
 	//   - no permissions required for listing own authorizations
 	ListAuthorizations(ctx context.Context, in *ListAuthorizationsRequest, opts ...grpc.CallOption) (*ListAuthorizationsResponse, error)
-	// Create Authorization
+	// Create Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// CreateAuthorization creates a new authorization for a user in an owned or granted project.
 	//
@@ -50,7 +54,9 @@ type AuthorizationServiceClient interface {
 	// Required permissions:
 	//   - "user.grant.write"
 	CreateAuthorization(ctx context.Context, in *CreateAuthorizationRequest, opts ...grpc.CallOption) (*CreateAuthorizationResponse, error)
-	// Update Authorization
+	// Update Role Assignments
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// UpdateAuthorization updates the authorization.
 	//
@@ -61,7 +67,9 @@ type AuthorizationServiceClient interface {
 	// Required permissions:
 	//   - "user.grant.write"
 	UpdateAuthorization(ctx context.Context, in *UpdateAuthorizationRequest, opts ...grpc.CallOption) (*UpdateAuthorizationResponse, error)
-	// Delete Authorization
+	// Delete Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// DeleteAuthorization deletes the authorization.
 	//
@@ -74,7 +82,9 @@ type AuthorizationServiceClient interface {
 	// Required permissions:
 	//   - "user.grant.delete"
 	DeleteAuthorization(ctx context.Context, in *DeleteAuthorizationRequest, opts ...grpc.CallOption) (*DeleteAuthorizationResponse, error)
-	// Activate Authorization
+	// Activate Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// ActivateAuthorization activates an existing but inactive authorization.
 	//
@@ -87,7 +97,7 @@ type AuthorizationServiceClient interface {
 	// Required permissions:
 	//   - "user.grant.write"
 	ActivateAuthorization(ctx context.Context, in *ActivateAuthorizationRequest, opts ...grpc.CallOption) (*ActivateAuthorizationResponse, error)
-	// Deactivate Authorization
+	// Deactivate Role Assignment
 	//
 	// DeactivateAuthorization deactivates an existing and active authorization.
 	//
@@ -168,7 +178,9 @@ func (c *authorizationServiceClient) DeactivateAuthorization(ctx context.Context
 // All implementations must embed UnimplementedAuthorizationServiceServer
 // for forward compatibility
 type AuthorizationServiceServer interface {
-	// List Authorizations
+	// List Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// ListAuthorizations returns all authorizations matching the request and necessary permissions.
 	//
@@ -178,7 +190,9 @@ type AuthorizationServiceServer interface {
 	//   - "user.grant.read"
 	//   - no permissions required for listing own authorizations
 	ListAuthorizations(context.Context, *ListAuthorizationsRequest) (*ListAuthorizationsResponse, error)
-	// Create Authorization
+	// Create Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// CreateAuthorization creates a new authorization for a user in an owned or granted project.
 	//
@@ -187,7 +201,9 @@ type AuthorizationServiceServer interface {
 	// Required permissions:
 	//   - "user.grant.write"
 	CreateAuthorization(context.Context, *CreateAuthorizationRequest) (*CreateAuthorizationResponse, error)
-	// Update Authorization
+	// Update Role Assignments
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// UpdateAuthorization updates the authorization.
 	//
@@ -198,7 +214,9 @@ type AuthorizationServiceServer interface {
 	// Required permissions:
 	//   - "user.grant.write"
 	UpdateAuthorization(context.Context, *UpdateAuthorizationRequest) (*UpdateAuthorizationResponse, error)
-	// Delete Authorization
+	// Delete Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// DeleteAuthorization deletes the authorization.
 	//
@@ -211,7 +229,9 @@ type AuthorizationServiceServer interface {
 	// Required permissions:
 	//   - "user.grant.delete"
 	DeleteAuthorization(context.Context, *DeleteAuthorizationRequest) (*DeleteAuthorizationResponse, error)
-	// Activate Authorization
+	// Activate Role Assignment
+	//
+	// Note: Authorization in this context refers to role assignments, not to OAuth authorization.
 	//
 	// ActivateAuthorization activates an existing but inactive authorization.
 	//
@@ -224,7 +244,7 @@ type AuthorizationServiceServer interface {
 	// Required permissions:
 	//   - "user.grant.write"
 	ActivateAuthorization(context.Context, *ActivateAuthorizationRequest) (*ActivateAuthorizationResponse, error)
-	// Deactivate Authorization
+	// Deactivate Role Assignment
 	//
 	// DeactivateAuthorization deactivates an existing and active authorization.
 	//
